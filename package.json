@@ -1,0 +1,38 @@
+{
+  "name": "dsh-inline-audio",
+  "description": "对话内联音频:LLM 回复中输出的本地音频路径(如 C:\\语音\\a.wav)直接在消息正文内渲染为可播放的 <audio> 播放器,支持 wav/mp3/ogg/m4a/aac/flac/opus/webm,带 HTTP Range 支持(可拖动进度条)",
+  "version": "1.0.0",
+  "license": "MIT",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [],
+      "platform": "web"
+    }
+  },
+  "files": [
+    "lib",
+    "src",
+    "build.mjs",
+    "client-bundle.js",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "node build.mjs",
+    "check": "node build.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.1"
+  }
+}
